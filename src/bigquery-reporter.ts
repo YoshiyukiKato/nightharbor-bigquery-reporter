@@ -1,15 +1,15 @@
 import {IReporter} from "nightharbor/interface";
 
-export default class BigQueryReporter implements IReporter {
+export default class BigqueryReporter implements IReporter {
   private bq: any;
   private dataset: string;
   private table: string;
   private resultDataList: any[];
 
-  constructor(bq: any, dataset?: string, table?: string) {
+  constructor(bq: any, dataset: string, table: string) {
     this.bq = bq;
-    this.dataset = dataset || "";
-    this.table = table || "";
+    this.dataset = dataset;
+    this.table = table;
     this.resultDataList = [];
   }
 
