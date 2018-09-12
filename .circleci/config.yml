@@ -20,7 +20,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: mkdir test/outputs
       - run: echo ${GCP_CREDENTIAL} > ${HOME}/gcp-credential.json
       - run: GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcp-credential.json npm test
       - run: npm run report-coverage
