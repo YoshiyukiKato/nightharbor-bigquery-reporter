@@ -1,4 +1,6 @@
-### nightharbor-bigquery-reporter
+# nightharbor-bigquery-reporter
+
+[![CircleCI](https://circleci.com/gh/YoshiyukiKato/nightharbor-bigquery-reporter.svg?style=shield)](https://circleci.com/gh/YoshiyukiKato/nightharbor-bigquery-reporter)
 
 A [nightharbor](https://github.com/YoshiyukiKato/nightharbor) reporter for GCP BigQuery.
 
