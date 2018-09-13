@@ -1,8 +1,9 @@
 # nightharbor-bigquery-reporter
 
-[![CircleCI](https://circleci.com/gh/YoshiyukiKato/nightharbor-bigquery-reporter.svg?style=shield)](https://circleci.com/gh/YoshiyukiKato/nightharbor-bigquery-reporter) 
+[![CircleCI](https://circleci.com/gh/YoshiyukiKato/nightharbor-bigquery-reporter.svg?style=svg)](https://circleci.com/gh/YoshiyukiKato/nightharbor-bigquery-reporter) 
+[![sonarcloud badge](https://sonarcloud.io/api/project_badges/measure?project=YoshiyukiKato_nightharbor-bigquery-reporter&metric=alert_status)](https://sonarcloud.io/api/project_badges/measure?project=YoshiyukiKato_nightharbor-bigquery-reporter&metric=alert_status)
 [![Greenkeeper badge](https://badges.greenkeeper.io/YoshiyukiKato/nightharbor-bigquery-reporter.svg)](https://greenkeeper.io/)
-[![codecov](https://codecov.io/gh/YoshiyukiKato/nightharbor-bigquery-reporter/branch/master/graph/badge.svg)](https://codecov.io/gh/YoshiyukiKato/nightharbor-bigquery-reporter)
+
 
 A [nightharbor](https://github.com/YoshiyukiKato/nightharbor) reporter for GCP BigQuery.
 

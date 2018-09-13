@@ -2,7 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/openjdk:10-jdk-node-browsers
+    environment:
+      - SONAR_SCANNER_VERSION: "3.2.0.1227"
+      - SONAR_PROJECT_KEY: YoshiyukiKato_nightharbor-bigquery-reporter
+      - SONAR_ORGANIZATION: yoshiyukikato-github
+      - SONAR_HOST_URL: "https://sonarcloud.io"
+      - GOOGLE_APPLICATION_CREDENTIALS: ${HOME}/gcp-credential.json
     working_directory: ~/repo
     steps:
       - checkout
@@ -12,15 +18,20 @@ jobs:
           - v1-dependencies-
       - run: sudo npm install -g npm
       - run: sudo npm install -g greenkeeper-lockfile@2
-      - run: sudo npm install -g codecov
       - run: greenkeeper-lockfile-update
       - run: npm install
       - run: npm run build
+      - run: 
+          name: set GCP Credential
+          command: echo ${GCP_CREDENTIAL} > ${HOME}/gcp-credential.json
+      - run:
+          name: run test
+          command: GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcp-credential.json npm test
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: echo ${GCP_CREDENTIAL} > ${HOME}/gcp-credential.json
-      - run: GOOGLE_APPLICATION_CREDENTIALS=${HOME}/gcp-credential.json npm test
-      - run: npm run report-coverage
+      - run:
+          name: analyze by SonarScanner
+          command: bash ./.circleci/sonar-scanner.sh
       - run: greenkeeper-lockfile-upload
