@@ -13,10 +13,6 @@ export default class BigqueryReporter implements IReporter {
     this.resultDataList = [];
   }
 
-  public open(): void {
-    return;
-  }
-
   public write(result: any): void {
     const dataKeyParsed = Object.keys(result).reduce((acc: any, key: string) => {
       acc[key.replace(/-/g, "_")] = result[key];

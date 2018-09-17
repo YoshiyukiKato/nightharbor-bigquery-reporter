@@ -8,16 +8,17 @@
 A [nightharbor](https://github.com/YoshiyukiKato/nightharbor) reporter for GCP BigQuery.
 
 ```sh
-$ npm install --save nightharbor nightharbor-bigquery-reporter
+$ npm install --save nightharbor @google-cloud/bigquery nightharbor-bigquery-reporter
 ```
 
 ```js
+import BigQuery from "@google-cloud/bigquery";
 import {BigQueryReporter} from "nightharbor/reporter/gcp";
 
 export default {
   ...,
   reporters: [
-    new BigQueryReporter("gcp project id", "dataset name", "table name")
+    new BigQueryReporter(new BigQuery({ projectId: "gcp project id" }), "dataset name", "table name")
   ]
   ...
 }

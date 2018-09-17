@@ -13,18 +13,17 @@ describe("GCP BQ reporters", () => {
     return bq.dataset(dataset).createTable(table, { schema: "message:string" });
   });
 
+  after(() => {
+    return bq.dataset(dataset).table(table).delete();
+  });
+
   it("sends report data to BQ with no error", () => {
     const data = { message: "test" };
     const reporter = new BigQueryReporter(bq, dataset, table);
-    reporter.open();
     reporter.write(data);
     return reporter.close()
       .then(() => {
         assert(true);
       });
-  });
-
-  after(() => {
-    return bq.dataset(dataset).table(table).delete();
   });
 });
