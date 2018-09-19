@@ -23,3 +23,9 @@ export default {
   ...
 }
 ```
+
+Please don't forget to set a path to your service account [credential file of GCP](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-console) to `GOOGLE_APPLICAITON_CREDENTIALS`.
+
+```sh
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
+```
