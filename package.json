@@ -1,7 +1,7 @@
 {
   "name": "nightharbor-bigquery-reporter",
   "description": "nightharbor reporter for gcp bigquery",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Yoshiyuki Kato",
   "peerDependencies": {
     "nightharbor": "^0.7.0",
